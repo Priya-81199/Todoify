@@ -1,17 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoify/Screens/tasks_list.dart';
-
+import 'package:todoify/Screens/add_tasks_screen.dart';
 
 class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
-      backgroundColor:  Color.fromRGBO(249, 224, 176, 1),
+      backgroundColor:  Color(0xffF7EDC9),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
         child: Icon(Icons.add,color: Color.fromRGBO(89, 57, 89,1),),
+        onPressed: (){
+          showModalBottomSheet(
+            context: context, builder: (context) => AddTasksScreen()
+          );
+        },
       ),
         body:  Center(
           child: Column(
@@ -44,7 +49,7 @@ class TasksScreen extends StatelessWidget {
 
                               Padding(
                                 padding: const EdgeInsets.symmetric(horizontal:16.0),
-                                child: Text('12 Tasks',style: TextStyle(
+                                child: Text('1 Task',style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.white
                                   ),
